@@ -13,6 +13,16 @@ class Character():
         self.has_weapon = has_weapon
         self.has_armor = has_armor
     
+    def Check_stats(self):
+        print("Name =", self.name)
+        print("Health =", self.health)
+        print("Attack =", self.attack)
+        print("Defense =", self.defense)
+        print("Potion Inventory =", self.inv_potion)
+        print("Armor Equipped =", self.has_armor)
+        print("Weapon Equipped =", self.has_weapon)
+        print("Is Alive =", self.is_alive)
+        
     def Add_potion(self, value):
         self.inv_potion += value
         
@@ -58,8 +68,7 @@ class Character():
             self.has_armor = False
         else:
             print("You are not wearing any armor")
-            
-            
+                        
     def Dmg(self, value):
         truedamage = value - self.defense
         if truedamage < 0:
