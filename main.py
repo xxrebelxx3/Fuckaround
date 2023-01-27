@@ -55,3 +55,4 @@ player.Revive()
 print(player.__dict__)
 player.Die()
 print(player.is_alive)
+#change test
