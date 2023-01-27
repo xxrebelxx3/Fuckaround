@@ -8,8 +8,9 @@ class Character():
     # is_alive is True by default. set is_alive=False in Character kwargs if you want a dead character
     is_alive = True
     
-    def __init__(self, **kwargs):
-        self.name = kwargs["name"] if "name" in kwargs else "LOSER"
+    def __init__(self, name, **kwargs):
+        # can use kwargs or variable specifically.
+        self.name = name
         self.health = kwargs["health"] if "health" in kwargs else 100
         self.starting_health = kwargs["health"] if "health" in kwargs else 100
         self.attack = kwargs["attack"] if "attack" in kwargs else 1
