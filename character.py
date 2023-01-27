@@ -1,9 +1,9 @@
 class Character():
     
-    def __init__(self, name, health=100, has_weapon=False, has_armor=False, attack=1, defense=0, inv_potion=0, is_alive=True):
+    def __init__(self, name, hp=100, has_weapon=False, has_armor=False, attack=1, defense=0, inv_potion=0, is_alive=True):
         self.name = name
-        self.health = health
-        self.starting_health = health
+        self.hp = hp
+        self.starting_hp = hp
         self.attack = attack
         self.starting_attack = attack
         self.defense = defense
@@ -15,7 +15,7 @@ class Character():
     
     def Check_stats(self):
         print("Name =", self.name)
-        print("Health =", self.health)
+        print("hp =", self.hp)
         print("Attack =", self.attack)
         print("Defense =", self.defense)
         print("Potion Inventory =", self.inv_potion)
@@ -35,9 +35,9 @@ class Character():
             
     def Heal(self, value):
         if self.is_alive:
-            self.health += value
-            if self.health > self.starting_health:
-                self.health = self.starting_health
+            self.hp += value
+            if self.hp > self.starting_hp:
+                self.hp = self.starting_hp
         else:
             print("Nice try, but you are already dead")
             
@@ -73,19 +73,19 @@ class Character():
         truedamage = value - self.defense
         if truedamage < 0:
             truedamage = 0
-        self.health -= truedamage
-        if self.health <= 0:
+        self.hp -= truedamage
+        if self.hp <= 0:
             self.Die()
             
     def Die(self):
         self.is_alive = False
-        self.health = 0
+        self.hp = 0
         
     def Revive(self):
         self.is_alive = True
-        self.health = (self.starting_health / 2)
+        self.hp = (self.starting_hp / 2)
         
-# player = Character(name=input("Choose a name for your character: "), attack=20, health=200, defense=1, inv_potion=10)
+# player = Character(name=input("Choose a name for your character: "), attack=20, hp=200, defense=1, inv_potion=10)
 
 # enemy1 = Character(name="Killa", attack=5, defense=5)
 # print(player.__dict__)
@@ -94,4 +94,4 @@ class Character():
 """while player.is_alive and enemy1.is_alive:
     print("you have been attacked")
     player.Dmg(enemy1.attack)
-    print("you have taken", (enemy1.attack - player.defense), "damage leaving you with", player.health)"""
+    print("you have taken", (enemy1.attack - player.defense), "damage leaving you with", player.hp)"""
