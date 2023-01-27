@@ -8,16 +8,19 @@ class Character():
     # is_alive is True by default. set is_alive=False in Character kwargs if you want a dead character
     is_alive = True
     
-    def __init__(self, name, **kwargs):
+    def __init__(self, name, health=100, attack=1, defense=0, inv_potion=0, is_alive=True):
         # can use kwargs or variable specifically.
         self.name = name
-        self.health = kwargs["health"] if "health" in kwargs else 100
-        self.starting_health = kwargs["health"] if "health" in kwargs else 100
-        self.attack = kwargs["attack"] if "attack" in kwargs else 1
-        self.defense = kwargs["defense"] if "defense" in kwargs else 0
-        self.inv_potion = kwargs["inv_potion"] if "inv_potion" in kwargs else 0
-        self.is_alive = kwargs["is_alive"] if "is_alive" in kwargs else True
+        self.health = health
+        self.starting_health = health
+        self.attack = attack
+        self.defense = defense
+        self.inv_potion = inv_potion
+        self.is_alive = is_alive
     
+    def Add_potion(self, value):
+        self.inv_potion += value
+        
     def Consume_potion(self):
         if self.inv_potion > 0:
             self.Heal(20)
@@ -30,6 +33,8 @@ class Character():
             
     def Dmg(self, value):
         truedamage = value - self.defense
+        if truedamage < 0:
+            truedamage = 0
         self.health -= truedamage
         if self.health <= 0:
             self.Die()
@@ -42,11 +47,15 @@ class Character():
         self.is_alive = True
         self.health = (self.starting_health / 2)
         
-player = Character(name=input("Choose a name for your character: "), health=100, attack=2, defense=5, inv_potion=10)
+player = Character(name=input("Choose a name for your character: "), attack=20, defense=5, inv_potion=10)
 
 
 print(player.__dict__)
-"""player.Heal(200)
+"""player.Dmg(player.attack)
+print(player.__dict__)
+player.Add_potion(5)
+print(player.inv_potion)
+player.Heal(200)
 print(player.__dict__)
 player.Dmg(50)
 print(player.__dict__)
