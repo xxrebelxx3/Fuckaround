@@ -24,7 +24,7 @@ class Character():
             print("You do not have any potions")
             
     def Heal(self, value):
-        if player.is_alive:
+        if self.is_alive:
             self.health += value
             if self.health > self.starting_health:
                 self.health = self.starting_health
