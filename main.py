@@ -1,22 +1,16 @@
 class Character():
-    name = ""
-    starting_health = 1.0
-    health = 1.0
-    attack = 1.0
-    defense = 1.0
-    inv_potion = 0
-    # is_alive is True by default. set is_alive=False in Character kwargs if you want a dead character
-    is_alive = True
     
-    def __init__(self, name, health=100, attack=1, defense=0, inv_potion=0, is_alive=True):
-        # can use kwargs or variable specifically.
+    def __init__(self, name, health=100, has_weapon=False, attack=1, defense=0, inv_potion=0, is_alive=True):
         self.name = name
         self.health = health
         self.starting_health = health
         self.attack = attack
+        self.starting_attack = attack
         self.defense = defense
+        self.starting_def = defense
         self.inv_potion = inv_potion
         self.is_alive = is_alive
+        self.has_weapon = has_weapon
     
     def Add_potion(self, value):
         self.inv_potion += value
@@ -30,6 +24,21 @@ class Character():
         self.health += value
         if self.health > 100:
             self.health = 100
+            
+    def equip_wep(self, value):
+        if self.has_weapon == False:
+            self.attack += value
+            self.has_weapon = True
+        else:
+            print("You already have a weapon equiped")
+            
+    def unequip_wep(self):
+        if self.has_weapon:
+            self.has_weapon = False
+            self.attack = self.starting_attack
+        else:
+            print("You do not have a weapon equipped")
+            
             
     def Dmg(self, value):
         truedamage = value - self.defense
@@ -47,23 +56,15 @@ class Character():
         self.is_alive = True
         self.health = (self.starting_health / 2)
         
-player = Character(name=input("Choose a name for your character: "), attack=20, defense=5, inv_potion=10)
+player = Character(name=input("Choose a name for your character: "), attack=20, health=200, defense=1, inv_potion=10)
 
+enemy1 = Character(name="Killa", attack=5, defense=5)
+print(player.__dict__)
+print(enemy1.__dict__)
 
-print(player.__dict__)
-"""player.Dmg(player.attack)
-print(player.__dict__)
-player.Add_potion(5)
-print(player.inv_potion)
-player.Heal(200)
-print(player.__dict__)
-player.Dmg(50)
-print(player.__dict__)
-player.Consume_potion()
-print(player.__dict__)
-player.Dmg(9001)
-print(player.__dict__)
-player.Revive()
-print(player.__dict__)
-player.Die()
-print(player.is_alive) this is testing functions"""
+print("Battle commences")
+
+"""while player.is_alive and enemy1.is_alive:
+    print("you have been attacked")
+    player.Dmg(enemy1.attack)
+    print("you have taken", (enemy1.attack - player.defense), "damage leaving you with", player.health)"""
