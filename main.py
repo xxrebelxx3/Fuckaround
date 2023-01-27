@@ -1,6 +1,6 @@
 class Character():
     
-    def __init__(self, name, health=100, has_weapon=False, attack=1, defense=0, inv_potion=0, is_alive=True):
+    def __init__(self, name, health=100, has_weapon=False, has_armor=False, attack=1, defense=0, inv_potion=0, is_alive=True):
         self.name = name
         self.health = health
         self.starting_health = health
@@ -11,6 +11,7 @@ class Character():
         self.inv_potion = inv_potion
         self.is_alive = is_alive
         self.has_weapon = has_weapon
+        self.has_armor = has_armor
     
     def Add_potion(self, value):
         self.inv_potion += value
@@ -19,25 +20,44 @@ class Character():
         if self.inv_potion > 0:
             self.Heal(20)
             self.inv_potion -= 1
+        else:
+            print("You do not have any potions")
             
     def Heal(self, value):
-        self.health += value
-        if self.health > 100:
-            self.health = 100
+        if player.is_alive:
+            self.health += value
+            if self.health > self.starting_health:
+                self.health = self.starting_health
+        else:
+            print("Nice try, but you are already dead")
             
-    def equip_wep(self, value):
+    def Equip_wep(self, value):
         if self.has_weapon == False:
             self.attack += value
             self.has_weapon = True
         else:
             print("You already have a weapon equiped")
             
-    def unequip_wep(self):
+    def Unequip_wep(self):
         if self.has_weapon:
             self.has_weapon = False
             self.attack = self.starting_attack
         else:
             print("You do not have a weapon equipped")
+            
+    def Equip_armor(self, value):
+        if self.has_armor == False:
+            self.defense += value
+            self.has_armor = True
+        else:
+            print("You are already wearing armor")
+            
+    def Unequip_armor(self):
+        if self.has_armor:
+            self.defense = self.starting_def
+            self.has_armor = False
+        else:
+            print("You are not wearing any armor")
             
             
     def Dmg(self, value):
@@ -61,8 +81,6 @@ player = Character(name=input("Choose a name for your character: "), attack=20, 
 enemy1 = Character(name="Killa", attack=5, defense=5)
 print(player.__dict__)
 print(enemy1.__dict__)
-
-print("Battle commences")
 
 """while player.is_alive and enemy1.is_alive:
     print("you have been attacked")
