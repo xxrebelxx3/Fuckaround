@@ -42,8 +42,10 @@ class Character():
         self.health = (self.starting_health / 2)
         
 player = Character(name=input("Choose a name for your character: "), health=100, attack=2, defense=5, inv_potion=10)
+
+
 print(player.__dict__)
-player.Heal(200)
+"""player.Heal(200)
 print(player.__dict__)
 player.Dmg(50)
 print(player.__dict__)
@@ -54,5 +56,4 @@ print(player.__dict__)
 player.Revive()
 print(player.__dict__)
 player.Die()
-print(player.is_alive)
-#change test
+print(player.is_alive) this is testing functions"""
