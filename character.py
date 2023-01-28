@@ -1,18 +1,22 @@
 class Character():
     
     # default character creation values unless specified in character creation
-    def __init__(self, name="John Doe", hp=100, has_weapon=False, has_armor=False, attack=1, defense=0, inv_potion=0, is_alive=True):
+    def __init__(self, name="John Doe", hp=100, has_weapon=False, has_armor=False, attack=1, defense=0, inv_potion=0, reputation=50, is_alive=True):
         self.name = name
         self.hp = hp
         self.starting_hp = hp
+        # attacks is base damage a character deals
         self.attack = attack
         self.starting_attack = attack
+        # defense reduces damage dealt to character by value of defense. See Dmg.
         self.defense = defense
         self.starting_def = defense
         self.inv_potion = inv_potion
         self.is_alive = is_alive
         self.has_weapon = has_weapon
         self.has_armor = has_armor
+        # 50 is neutral, 0 is worst, 100 is best.
+        self.reputation = reputation
         
     # prints character values
     def Check_stats(self):
@@ -24,7 +28,7 @@ class Character():
         print("Armor Equipped =", self.has_armor)
         print("Weapon Equipped =", self.has_weapon)
         print("Is Alive =", self.is_alive)
-        
+        print("Reputation =", self.reputation)
     # adds potion to character inventory
     def Add_potion(self, value):
         self.inv_potion += value

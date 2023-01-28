@@ -33,6 +33,8 @@ while True:
     if choice == "R":
         print("You go right")
         break
+    if choice not in ["L", "R", "P", "CS"]:
+        print("That is not a valid option try again")
     
 while True:
     Global_choice(input("You find a found a magic well. Would you like to drink from it? \"Y/N\": "))
