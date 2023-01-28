@@ -32,7 +32,7 @@ Character type ideas:
         bonus to purchase and sell price. extra risk at security.
     Spiritual: charisma boost, drugs are more expensive. bonus xp from workshops.
     Basshead: idk
-    
+
     
 Carrer path ideas:
     DJ: You perform in the festival. reputation bonus, extra quest paths.
@@ -42,7 +42,20 @@ Carrer path ideas:
 Gear ideas:
     Tent: (replenishes rest, adds storage inventory slots, allows for orgies,
         allows for safe place to conduct business. has rain or heat resistence)
-
+    Earplugs: protect hearing while at shows.
+    Backpack: store inventory, can be upgraded to a camel back.
+    Fannypack: store inventory, easily dropped if running from security 
+        (if you dont keep anything identifying in there)
+    FlowToys: can be used in festival, on lot, at home. not sure how it will factor
+        in yet.
+    Map: makes travel easier.
+    Radio: makes communication easier, maybe early alert to security events.
+    Hacking device: used to hack into wifi, maybe other shennanigans?
+    Paraphernalia: Used to consume drugs. Include lots of upgradeable options here
+        like bong, e-rig, deems adapter, spoon, bullet, etc.
+    Waterbottle: Takes inventory slot, customizable size, vacuum insulated etc.
+        allows player to carry water. Upgradeable to camelback if backpack unlocked.
+    Organite: Maybe exclusive to spiritual class, boosts various stats.
 Todo:
     Create merchant feature to buy sell and tade goods
     Create heat meter
