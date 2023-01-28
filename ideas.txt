@@ -32,11 +32,17 @@ Character type ideas:
         bonus to purchase and sell price. extra risk at security.
     Spiritual: charisma boost, drugs are more expensive. bonus xp from workshops.
     Basshead: idk
+    Old Head: Eventually you become this if you spend enough time in the festivals and character age
+        is above 50 or something
 
     
 Carrer path ideas:
     DJ: You perform in the festival. reputation bonus, extra quest paths.
     Drug Dealer: Ability to buy drugs in bulk. reputation changes depending on who interact with.
+    Festival organizer: This might be end goal evolution after completing dj or drug dealer career.
+    Promoter: Hand out fliers and get people to after parties.
+    Undercover cop: This unlocks as a path after first bust selling drugs with offer to become
+        CI for the rest of the festival.
 
 
 Gear ideas:
