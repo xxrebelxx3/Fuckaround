@@ -1,0 +1,52 @@
+Going to collect all my thoughts here as the game developes:
+
+General theme:
+    You are new to festivals. You evolve and progress as you go about your time,
+        hustling, doing drugs, going to shows, and taking oppertunities.
+        Drugs have various effects on your abilities and chances of outcomes as well
+        as how you are percieved by others.
+    Setting:
+        There are 3 main areas. In the festival, on lot, and at home(maybe in an rv?). You must pass through security
+            when you enter a new festival and everytime you pass from lot to the festival.
+            If you have drugs in your inventory passing through security you run a risk of going
+            to jail that changes based on how much effort you put into hiding them(More so coming in from home)
+            This can be mitigated potentially if you have enough money for a lawyer or bribe, or can run.
+            
+            While on lot you can trade and hustle and meet other npcs who give quests. Learn about
+            secret renegade sets, consume food, drink, and drugs. Build or tarnish reputation as you
+            go from camp to camp and interact with people.
+
+            While in the festival you can attend shows, buy food, drink, drugs(more expensive), flow toys, art etc..
+            You could use flow toys within the festival, recharge your "rave meter"
+            damage hearing if you dont use ear plugs at shows. You can attend workshops during the day
+            to learn new skills or head down an evolution path.
+
+            While at home you can reup on anything you want to bring to the next festival.
+            You can access your bitcoin accounts freely (I want to use api call to make this real value changes)
+            This also will be the time you deal with any tickets/fines, make art or other products to bring,
+            improve gear, budget for gas to get to the festival.
+
+
+Character type ideas:
+    Wook: Mostly useless, extra resistence to drugs, dehydration, heatstroke. Negative reputation buff
+        bonus to purchase and sell price. extra risk at security.
+    Spiritual: charisma boost, drugs are more expensive. bonus xp from workshops.
+    Basshead: idk
+    
+    
+Carrer path ideas:
+    DJ: You perform in the festival. reputation bonus, extra quest paths.
+    Drug Dealer: Ability to buy drugs in bulk. reputation changes depending on who interact with.
+
+
+Gear ideas:
+    Tent: (replenishes rest, adds storage inventory slots, allows for orgies,
+        allows for safe place to conduct business. has rain or heat resistence)
+
+Todo:
+    Create merchant feature to buy sell and tade goods
+    Create heat meter
+    Buy drugs in person or on DNM for a discount but with delay. chance for interception.
+    Create morality/reputation meter.
+    Create Inventory to track money and inventory.
+    Create bitcoin savings only accessible outside of the festival or if you bribe or hack your way into security wifi.
