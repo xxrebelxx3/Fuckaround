@@ -20,7 +20,6 @@ enemy1 = Character(name="Killa", attack=5, defense=5)
 print(player.__dict__)
 print(enemy1.__dict__)
 
-player.Dmg(100)
 player.Check_stats()
 
 Global_choice(input("Enter \"P\" to consume a potion or \"CS\" to check player statistics anytime you are able to make a choice. Try it now: "))
@@ -33,7 +32,7 @@ while True:
     if choice == "R":
         print("You go right")
         break
-    if choice not in ["L", "R", "P", "CS"]:
+    if choice not in ["L", "R", "P", "CS", ]: #not working properly
         print("That is not a valid option try again")
     
 while True:
@@ -46,3 +45,5 @@ while True:
         player.Dmg(10)
         print("A rock flies out of the mystical well and strikes you dealing", (10 - player.defense), "damage leaving you with", player.hp, "health")
         break
+    if choice not in ["Y", "N", "P", "CS", ]:
+        print("That is not a valid option try again")

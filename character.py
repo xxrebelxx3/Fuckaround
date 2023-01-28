@@ -1,7 +1,7 @@
 class Character():
     
     # default character creation values unless specified in character creation
-    def __init__(self, name="John Doe", age=18, hp=100, char_type=["Noob"], subclass="None", has_weapon=False, has_armor=False, attack=1, defense=0, inv_potion=0, reputation=50, is_alive=True):
+    def __init__(self, name="John Doe", age=18, hp=100, char_type="Noob", subclass="None", has_weapon=False, has_armor=False, attack=1, defense=0, inv_potion=0, reputation=50, is_alive=True):
         self.name = name
         self.age = age
         self.hp = hp
