@@ -1,9 +1,14 @@
 class Character():
     
     # default character creation values unless specified in character creation
-    def __init__(self, name="John Doe", hp=100, has_weapon=False, has_armor=False, attack=1, defense=0, inv_potion=0, reputation=50, is_alive=True):
+    def __init__(self, name="John Doe", age=18, hp=100, char_type=["Noob"], subclass="None", has_weapon=False, has_armor=False, attack=1, defense=0, inv_potion=0, reputation=50, is_alive=True):
         self.name = name
+        self.age = age
         self.hp = hp
+        # Wook, spiritual, old head, Prepared for everything.
+        self.char_type = char_type
+        # Shaman, Healer, Dealer, artist, slut etc. Can be multiple
+        self.subclass = subclass
         self.starting_hp = hp
         # attacks is base damage a character deals
         self.attack = attack
@@ -21,6 +26,9 @@ class Character():
     # prints character values
     def Check_stats(self):
         print("Name =", self.name)
+        print("Age =", self.age)
+        print("Character Type =", self.char_type)
+        print("SubClass =", self.subclass)
         print("hp =", self.hp)
         print("Attack =", self.attack)
         print("Defense =", self.defense)
