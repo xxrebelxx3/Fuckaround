@@ -1,0 +1,2 @@
+in character.py add function "Unequip"
+in inventory.py add function "Transfer item" 
