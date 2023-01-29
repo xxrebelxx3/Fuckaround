@@ -1,4 +1,6 @@
 from character import Character
+from inventory import Inventory
+from items import Item
 
 # Tracks user input as choice
 choice = "a"
@@ -15,35 +17,14 @@ def Global_choice(res=input()):
         choice = res
     
 player = Character(name=input("Choose a name for your character: "), attack=20, hp=200, defense=1, inv_potion=10)
-enemy1 = Character(name="Killa", attack=5, defense=5)
 
-print(player.__dict__)
-print(enemy1.__dict__)
-
-player.Check_stats()
-
-Global_choice(input("Enter \"P\" to consume a potion or \"CS\" to check player statistics anytime you are able to make a choice. Try it now: "))
-
-while True:
-    Global_choice(input("You come up to a fork in the road. Enter \"L\" to go left or \"R\" to go right: "))
-    if choice == "L":
-        print("You go left")
-        break
-    if choice == "R":
-        print("You go right")
-        break
-    if choice not in ["L", "R", "P", "CS", ]: #not working properly
-        print("That is not a valid option try again")
-    
-while True:
-    Global_choice(input("You find a found a magic well. Would you like to drink from it? \"Y/N\": "))
-    if choice == "Y":
-        player.Heal(45)
-        print("You have healed for 45 health. Your health is now", player.hp)
-        break
-    if choice == "N":
-        player.Dmg(10)
-        print("A rock flies out of the mystical well and strikes you dealing", (10 - player.defense), "damage leaving you with", player.hp, "health")
-        break
-    if choice not in ["Y", "N", "P", "CS", ]:
-        print("That is not a valid option try again")
+        
+backpack = Inventory(10)
+fannypack = Inventory(5)
+marijuana = Item(name="Marijuana", description="Marijauna is a plant that has psychoactive properties when consumed. Make sure to bring this to the Ganja Beige Knight show!", individual_value=15)
+marijuana.add_to_inventory(fannypack, 5)
+marijuana.add_to_inventory(backpack, 3.5)
+marijuana.sell(backpack)
+marijuana.sell(fannypack)
+fannypack.show()
+backpack.show()
