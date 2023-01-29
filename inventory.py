@@ -23,15 +23,18 @@ class Inventory():
         else:
             print("You are already wearing as much as you can carry")    
            
-    def show(self):
-        index = 1
-        for item in self.items:
-            print(str(f'{index} -> [x{item.amount}] {item.name}'))
-            index += 1
+    def show_inventory(self):
+        if len(self.items) > 0:
+            index = 1
+            for item in self.items:
+                print(str(f'{index} -> [x{item.amount}] {item.name}'))
+                index += 1
+        else:
+            print(f"Your {self.name} is empty.")
 
     def drop_item(self):
         print('\nWhich item do you want to drop? ["0" to Quit]')
-        self.show()
+        self.show_inventory()
         i = int(input('\nNº > '))
         if i == 0:
             print('\nClosing the Inventory...')
@@ -53,12 +56,12 @@ class Inventory():
             item.amount -= amt
             print(f'Item {item.name}[x{amt}] Dropped!\nNow your Inventory is this:')
 
-        self.show()
+        self.show_inventory()
         self.drop_item()
         
     """def transfer(self, inventory2, amount, exist=False):
         print('\nWhich item do you want to transfer? ["0" to Quit]')
-        self.show()
+        self.show_inventory()
         i = int(input('\nNº > '))
         if i == 0:
             print('\nClosing the Inventory...')

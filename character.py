@@ -112,10 +112,14 @@ class Character():
         self.hp = (self.starting_hp / 2)
         
     def show_equipped(self):
-        index = 1
-        for item in self.wearing:
-            print(str(f'{index} -> {item.name}'))
-            index += 1
+        if len(self.wearing) > 0:
+            print(f"{self.name} is wearing:")
+            index = 1
+            for item in self.wearing:
+                print(str(f'{index} -> {item.name}'))
+                index += 1
+        else:
+            print(f"{self.name} has nothing equipped.")
    
 # examples of character creation:     
 # player = Character(name=input("Choose a name for your character: "), attack=20, hp=200, defense=1, inv_potion=10)
