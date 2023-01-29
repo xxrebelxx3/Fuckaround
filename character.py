@@ -3,6 +3,8 @@ class Character():
     # default character creation values unless specified in character creation
     def __init__(self, name="John Doe", age=18, hp=100, char_type="Noob", subclass="None", has_weapon=False, has_armor=False, attack=1, defense=0, inv_potion=0, reputation=50, is_alive=True):
         self.name = name
+        self.wear_capacity = 6
+        self.wearing = []
         self.age = age
         self.hp = hp
         # Wook, spiritual, old head, Prepared for everything.
@@ -108,6 +110,12 @@ class Character():
     def Revive(self):
         self.is_alive = True
         self.hp = (self.starting_hp / 2)
+        
+    def show_equipped(self):
+        index = 1
+        for item in self.wearing:
+            print(str(f'{index} -> {item.name}'))
+            index += 1
    
 # examples of character creation:     
 # player = Character(name=input("Choose a name for your character: "), attack=20, hp=200, defense=1, inv_potion=10)

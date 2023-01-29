@@ -1,10 +1,28 @@
 
 class Inventory():
-    # example: backpack = Inventory(10)
-    def __init__(self, capacity):
+    # example: backpack = Inventory(10, back)
+    def __init__(self, name, capacity, location):
+        self.name = name
         self.capacity = capacity
         self.items = []
+        self.location = location
 
+    def equip(self, character, location_check=False):
+        if len(character.wearing) < character.wear_capacity:
+            if self not in character.wearing:
+                for slot in character.wearing:
+                    if slot.location == self.location:
+                        location_check = True
+                if location_check == True:
+                    print(f"You are already wearing someting on your {character.location}")
+                else:
+                    character.wearing.append(self)
+                    print(f'You have equipped {self.name} to {character.name}')
+            else:
+                print(f"You are already wearing a {self.name}")
+        else:
+            print("You are already wearing as much as you can carry")    
+           
     def show(self):
         index = 1
         for item in self.items:
@@ -49,6 +67,13 @@ class Inventory():
     @property
     def total_worth(self):
         return f'\nThe inventory Total Worth is: ${sum([i.individual_value * i.amount for i in self.items]):.2f}'
+
+"""
+Inventory templates:
+    backpack = Inventory("Backpack", 10, 'back')
+    fannypack = Inventory("Fannypack", 5, 'waist')
+"""
+
 
 
 # inspired by https://github.com/ngeorgj/rpg-inventory-system/blob/master/inventory.py
