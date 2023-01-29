@@ -7,7 +7,7 @@ class Inventory():
         self.items = []
         self.location = location
 
-    def equip(self, character, location_check=False):
+    def equip_inventory(self, character, location_check=False):
         if len(character.wearing) < character.wear_capacity:
             if self not in character.wearing:
                 for slot in character.wearing:
@@ -25,6 +25,7 @@ class Inventory():
            
     def show_inventory(self):
         if len(self.items) > 0:
+            print(f'Your {self.name} conatins:')
             index = 1
             for item in self.items:
                 print(str(f'{index} -> [x{item.amount}] {item.name}'))
@@ -38,34 +39,57 @@ class Inventory():
         i = int(input('\nNº > '))
         if i == 0:
             print('\nClosing the Inventory...')
-            quit()
+            return
 
         item = self.items[i - 1]
-        if item.amount == 1:
-            amt = 1
+        if item.amount == 0.1:
+            amt = 0.1
             self.items.pop(i - 1)
             print(f'Item {item.name}[x{amt}] Dropped!\nNow your Inventory is this:')
 
         else:
             print(f'You have {item.amount} of this, how many do you want to drop?')
             amt = float(input('amt > '))
-            if item.amount <= 0:
-                amt = 0
-                self.items.pop(item)
-                print(f'Item {item.name}[x{amt}] Dropped!\nNow your Inventory is this:')
             item.amount -= amt
-            print(f'Item {item.name}[x{amt}] Dropped!\nNow your Inventory is this:')
+            if item.amount <= 0:
+                self.items.pop(i - 1)
+                print(f'Item {item.name}[x{amt}] Dropped!\nNow your Inventory is this:')
+            else:
+                print(f'Item {item.name}[x{amt}] Dropped!\nNow your Inventory is this:')
 
         self.show_inventory()
         self.drop_item()
         
-    """def transfer(self, inventory2, amount, exist=False):
+    def transfer(self, inventory2):
         print('\nWhich item do you want to transfer? ["0" to Quit]')
         self.show_inventory()
         i = int(input('\nNº > '))
         if i == 0:
             print('\nClosing the Inventory...')
-            quit()"""
+            return
+
+        item = self.items[i - 1]
+        if item.amount == 0.1:
+            amt = 0.1
+            self.items.pop(i - 1)
+            item.add_to_inventory(inventory2, amt)
+            print(f'Item {item.name}[x{amt}] transfered from {self.name} to {inventory2.name}!\nNow your {self.name} inventory is this:')
+
+        else:
+            print(f'You have {item.amount} of this, how many do you want to transfer?')
+            amt = float(input('amt > '))
+            item.amount -= amt
+            item.add_to_inventory(inventory2, amt)
+            if item.amount <= 0:
+                self.items.pop(i - 1)
+                print(f'Item {item.name}[x{amt}] transfered from {self.name} to {inventory2.name}!\nNow your {self.name} inventory is this:')
+            else:
+                print(f'Item {item.name}[x{amt}] transfered from {self.name} to {inventory2.name}!\nNow your {self.name} inventory is this:')
+
+        self.show_inventory()
+        print(f"And your {inventory2.name} contains:")
+        inventory2.show_inventory()
+        self.transfer(inventory2)
 
     @property
     def total_worth(self):
