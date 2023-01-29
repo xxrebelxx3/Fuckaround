@@ -28,17 +28,34 @@ class Item:
 
             pass
         else:
-            print(f"You are not currently carrying any {self.name}.")
+            print(f"You are not currently carrying any {self.name} in your {inventory}.")
 
-    def add_to_inventory(self, inventory, amount):
+    def add_to_inventory(self, inventory, amount, exist=False):
         if len(inventory.items) < inventory.capacity:
             if self not in inventory.items:
-                self.amount = amount
-                inventory.items.append(self)
-                print(f'x{self.amount} {self.name} added to your Inventory')
+                for item in inventory.items:
+                    if item.name == self.name:
+                        exist = True
+                    else:
+                        exist = False
+                if exist == True:
+                    item.amount += amount
+                    print(f'x{amount} {item.name} added to your Inventory. You now have x{item.amount} {item.name}')
+                else:
+                    self.amount = amount
+                    inventory.items.append(self)
+                    print(f'x{self.amount} {self.name} added to your Inventory')
             else:
                 self.amount += amount
                 print(f'x{amount} {self.name} added to your Inventory. You now have x{self.amount} {self.name}')
-
+           
         else:
             print('No room for more items...')
+            
+"""
+Item templates. use "_*" where "*" is the first letter of the created inventory. example marijuana that goes in a backpack would be marijuana_b
+marijuana_* = Item(name="Marijuana", description="Marijauna is a plant that has psychoactive properties when consumed. Make sure to bring this to the Ganja Beige Knight show!", individual_value=15)
+
+
+"""
+# inspired by https://github.com/ngeorgj/rpg-inventory-system/blob/master/inventory.py

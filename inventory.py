@@ -37,7 +37,18 @@ class Inventory():
 
         self.show()
         self.drop_item()
+        
+    """def transfer(self, inventory2, amount, exist=False):
+        print('\nWhich item do you want to transfer? ["0" to Quit]')
+        self.show()
+        i = int(input('\nNº > '))
+        if i == 0:
+            print('\nClosing the Inventory...')
+            quit()"""
 
     @property
     def total_worth(self):
         return f'\nThe inventory Total Worth is: ${sum([i.individual_value * i.amount for i in self.items]):.2f}'
+
+
+# inspired by https://github.com/ngeorgj/rpg-inventory-system/blob/master/inventory.py
