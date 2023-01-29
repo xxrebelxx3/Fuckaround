@@ -111,6 +111,22 @@ class Character():
         self.is_alive = True
         self.hp = (self.starting_hp / 2)
         
+    def equip_inventory(self, inventory, location_check=False):
+        if len(self.wearing) < self.wear_capacity:
+            if inventory not in self.wearing:
+                for slot in self.wearing:
+                    if slot.location == inventory.location:
+                        location_check = True
+                if location_check == True:
+                    print(f"You are already wearing someting on your {self.location}")
+                else:
+                    self.wearing.append(inventory)
+                    print(f'You have equipped a {inventory.name} to {self.name}')
+            else:
+                print(f"You are already wearing a {inventory.name}")
+        else:
+            print("You are already wearing as much as you can carry")    
+    
     def show_equipped(self):
         if len(self.wearing) > 0:
             print(f"{self.name} is wearing:")

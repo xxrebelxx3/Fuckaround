@@ -1,2 +1,2 @@
 in character.py add function "Unequip"
-in inventory.py add function "Transfer item" 
+in inventory transfer function almost works, except when inventory totally empties it breaks because it treats the same item in each inventory instead of marijuana_b or _f.

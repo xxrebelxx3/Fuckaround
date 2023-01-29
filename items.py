@@ -40,17 +40,19 @@ class Item:
                         exist = False
                 if exist == True:
                     item.amount += amount
-                    print(f'x{amount} {item.name} added to your Inventory. You now have x{item.amount} {item.name}')
+                    print(f'x{amount} {item.name} added to your {inventory.name}. You now have x{item.amount} {item.name}')
                 else:
                     self.amount = amount
                     inventory.items.append(self)
-                    print(f'x{self.amount} {self.name} added to your Inventory')
+                    print(f'x{self.amount} {self.name} added to your {inventory.name}')
             else:
                 self.amount += amount
-                print(f'x{amount} {self.name} added to your Inventory. You now have x{self.amount} {self.name}')
+                print(f'x{amount} {self.name} added to your {inventory.name}. You now have x{self.amount} {self.name}')
            
         else:
             print('No room for more items...')
+            
+    
             
 """
 Item templates. use "_*" where "*" is the first letter of the created inventory. example marijuana that goes in a backpack would be marijuana_b

@@ -7,7 +7,7 @@ class Inventory():
         self.items = []
         self.location = location
 
-    def equip_inventory(self, character, location_check=False):
+    """def equip_inventory(self, character, location_check=False):
         if len(character.wearing) < character.wear_capacity:
             if self not in character.wearing:
                 for slot in character.wearing:
@@ -21,7 +21,7 @@ class Inventory():
             else:
                 print(f"You are already wearing a {self.name}")
         else:
-            print("You are already wearing as much as you can carry")    
+            print("You are already wearing as much as you can carry")"""   
            
     def show_inventory(self):
         if len(self.items) > 0:
@@ -61,7 +61,7 @@ class Inventory():
         self.drop_item()
         
     def transfer(self, inventory2):
-        print('\nWhich item do you want to transfer? ["0" to Quit]')
+        print(f'\nWhich item do you want to transfer to your {inventory2.name}? ["0" to Quit]')
         self.show_inventory()
         i = int(input('\nNº > '))
         if i == 0:
@@ -73,11 +73,13 @@ class Inventory():
             amt = 0.1
             self.items.pop(i - 1)
             item.add_to_inventory(inventory2, amt)
-            print(f'Item {item.name}[x{amt}] transfered from {self.name} to {inventory2.name}!\nNow your {self.name} inventory is this:')
+            print(f'Item {item.name}[x{amt}] transfered from {self.name} to {inventory2.name}!\nNow your inventory is this:')
 
         else:
             print(f'You have {item.amount} of this, how many do you want to transfer?')
             amt = float(input('amt > '))
+            if amt > item.amount:
+                amt = item.amount
             item.amount -= amt
             item.add_to_inventory(inventory2, amt)
             if item.amount <= 0:
