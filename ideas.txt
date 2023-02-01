@@ -62,6 +62,7 @@ Gear ideas:
     Waterbottle: Takes inventory slot, customizable size, vacuum insulated etc.
         allows player to carry water. Upgradeable to camelback if backpack unlocked.
     Organite: Maybe exclusive to spiritual class, boosts various stats.
+    Sunglasses: Protects reputation from eye check.
 Todo:
     Create merchant feature to buy sell and tade goods
     Create heat meter

@@ -1,5 +1,5 @@
 class Item:
-
+    
     def __init__(self, name, description, individual_value):
         self.name = name
         self.description = description
@@ -29,8 +29,14 @@ class Item:
             pass
         else:
             print(f"You are not currently carrying any {self.name} in your {inventory}.")
+            
+    def getitem(self, masterlist, usedlist):
+        for i in masterlist:
+            if i not in usedlist:
+                usedlist.append(i)
+                return i
 
-    def add_to_inventory(self, inventory, amount, exist=False):
+    def add_to_inventory(self, inventory, amount, masterlist, usedlist, exist=False):
         if len(inventory.items) < inventory.capacity:
             if self not in inventory.items:
                 for item in inventory.items:
@@ -43,7 +49,7 @@ class Item:
                     print(f'x{amount} {item.name} added to your {inventory.name}. You now have x{item.amount} {item.name}')
                 else:
                     self.amount = amount
-                    inventory.items.append(self)
+                    inventory.items.append(self.getitem(masterlist, usedlist))
                     print(f'x{self.amount} {self.name} added to your {inventory.name}')
             else:
                 self.amount += amount
